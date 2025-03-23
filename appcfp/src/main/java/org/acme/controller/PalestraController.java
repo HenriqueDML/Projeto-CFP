@@ -8,6 +8,8 @@ import jakarta.ws.rs.core.Response;
 import org.acme.entity.PalestraEntity;
 import org.acme.service.PalestraService;
 
+import java.util.UUID;
+
 @Path("/palestras")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
@@ -32,5 +34,26 @@ public class PalestraController  {
                                  @QueryParam("pageSize") @DefaultValue ("10") Integer pageSize) {
         var palestras = palestraService.findPalestra(page, pageSize);
         return Response.ok(palestras).build();
+    }
+
+    @GET
+    @Path("/{id}")
+    public Response createPalestra(@PathParam("id")UUID palestraId) {
+        return Response.ok(palestraService.findById(palestraId)).build();
+    }
+
+    @PUT
+    @Path("/{id}")
+    @Transactional
+    public Response updatePalestra(@PathParam("id")UUID palestraId,PalestraEntity palestraEntity) {
+        return Response.ok(palestraService.updatePalestra(palestraId, palestraEntity)).build();
+    }
+
+    @DELETE
+    @Path("/{id}")
+    @Transactional
+    public Response deleteById(@PathParam("id")UUID palestraId) {
+        palestraService.deleteById(palestraId);
+        return Response.noContent().build();
     }
 }

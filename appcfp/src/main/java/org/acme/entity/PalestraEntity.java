@@ -12,7 +12,7 @@ public class PalestraEntity extends PanacheEntityBase {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    public UUID palestaId;
+    public UUID palestraId;
 
     public String titulo;
     public String resumo;
