@@ -2,6 +2,7 @@ package org.acme.service;
 
 
 import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.transaction.Transactional;
 import jakarta.ws.rs.core.UriBuilderException;
 import org.acme.entity.PalestraEntity;
 import org.acme.exception.PalestraNotFoundException;
@@ -14,6 +15,7 @@ import java.util.UUID;
 
 public class PalestraService {
 
+    @Transactional
     public PalestraEntity createPalestra(PalestraEntity palestraEntity){
         PalestraEntity.persist(palestraEntity);
         return palestraEntity;
@@ -32,13 +34,16 @@ public class PalestraService {
 
     public PalestraEntity updatePalestra(UUID palestraId, PalestraEntity palestraEntity){
         var palestra = findById(palestraId);
-        palestra.titulo = palestraEntity.titulo;
+        palestra.setTitulo(palestraEntity.getTitulo());
+        palestra.setResumo(palestraEntity.getResumo());
+        palestra.setNomeAutor(palestraEntity.getNomeAutor());
+        palestra.setEmail(palestraEntity.getEmail());
         PalestraEntity.persist(palestra);
         return palestra;
     }
 
     public void deleteById(UUID palestraId){
         var palestra = findById(palestraId);
-        PalestraEntity.deleteById(palestra.palestraId);
+        PalestraEntity.deleteById(palestra.getPalestraId());
     }
 }
