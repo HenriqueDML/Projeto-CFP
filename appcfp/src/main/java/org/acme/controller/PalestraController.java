@@ -8,6 +8,7 @@ import jakarta.ws.rs.core.Response;
 import org.acme.entity.PalestraEntity;
 import org.acme.service.PalestraService;
 
+import java.util.List;
 import java.util.UUID;
 
 @Path("/palestras")
@@ -55,5 +56,15 @@ public class PalestraController  {
     public Response deleteById(@PathParam("id")UUID palestraId) {
         palestraService.deleteById(palestraId);
         return Response.noContent().build();
+    }
+
+    @GET
+    @Path("/buscar")
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<PalestraEntity> buscarComFiltros(
+            @QueryParam("titulo") String titulo,
+            @QueryParam("nomeAutor") String nomeAutor,
+            @QueryParam("email") String email) {
+        return palestraService.buscarComFiltros(titulo, nomeAutor, email);
     }
 }
