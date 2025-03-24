@@ -2,6 +2,12 @@
 
 Este projeto é uma aplicação web construída com **Quarkus**, **Vaadin**, **MariaDB**, e utiliza **GraalVM** com suporte a **Java 21**. A aplicação realiza o cadastro e gerenciamento de palestras para eventos.
 
+## 🛠️ Projeto Rodando
+![cfpimg](https://github.com/user-attachments/assets/39ec03e8-4053-4479-8532-7af2563e7b04)
+
+## 🛠️ Pequeno Video sobre o Projeto
+Link: https://youtu.be/n6O6-384jHc
+
 ## 🛠️ Tecnologias Utilizadas
 
 - **Java 21**
@@ -15,36 +21,37 @@ Este projeto é uma aplicação web construída com **Quarkus**, **Vaadin**, **M
 - **Quarkus Security (OAuth2/OpenID para login externo)**
 - **Testes com JUnit 5 e RestAssured**
 
-## 📦 Estrutura do Projeto
-
-```
-src/
-├── main/
-│   ├── java/org/acme/
-│   │   ├── controller/       # Controladores REST
-│   │   ├── entity/           # Entidades JPA
-│   │   ├── repository/       # Repositórios Panache
-│   │   └── ui/               # Telas Vaadin
-│   └── resources/            # application.properties, arquivos estáticos
-├── test/java/org/acme/       # Testes unitários e de integração
-```
-
 ## 🚀 Como Rodar
 
-### Requisitos
+### Pré-requisitos
 
-- Java 21 + GraalVM
-- Docker
-- Maven 3.9+
-- IDE recomendada: [InleJ](https://inlej.dev) ou IntelliJ IDEA
+- **Java 21 com GraalVM**
+- **Docker** instalado e em execução
+- **Maven 3.9+**
+- **IDE** recomendada: InleJ ou IntelliJ IDEA
 
-### Subindo com Dev Services
+### Passos
+
+1. **Clone o projeto**
+
+```bash
+git clone <URL-do-repositório>
+cd appcfp
+```
+
+2. **Execute em modo desenvolvimento**
 
 ```bash
 ./mvnw quarkus:dev
 ```
 
-> O banco de dados MariaDB será iniciado automaticamente com Testcontainers.
+> O banco de dados MariaDB será iniciado automaticamente em um container com Testcontainers (Dev Services do Quarkus).
+
+3. **Acesse no navegador**
+
+```
+http://localhost:8080
+```
 
 ## ✅ Executar Testes
 
@@ -64,6 +71,3 @@ src/
 
 O banco é iniciado em container (via Testcontainers) com suporte para ambiente de testes e desenvolvimento automático (Dev Services).
 
-## 👥 Autores
-
-- Projeto desenvolvido por Henrique com apoio de assistente virtual.
