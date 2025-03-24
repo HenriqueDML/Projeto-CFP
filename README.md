@@ -2,10 +2,10 @@
 
 Este projeto é uma aplicação web construída com **Quarkus**, **Vaadin**, **MariaDB**, e utiliza **GraalVM** com suporte a **Java 21**. A aplicação realiza o cadastro e gerenciamento de palestras para eventos.
 
-## 🛠️ Projeto Rodando
+##  Projeto Rodando
 ![cfpimg](https://github.com/user-attachments/assets/39ec03e8-4053-4479-8532-7af2563e7b04)
 
-## 🛠️ Pequeno Video sobre o Projeto
+## 🌐 Pequeno Video sobre o Projeto
 Link: https://youtu.be/n6O6-384jHc
 
 ## 🛠️ Tecnologias Utilizadas
